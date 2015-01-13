@@ -5,8 +5,12 @@ You'll need to install [mono](http://www.mono-project.com/docs/about-mono/suppor
 
 # Building
 
-`xbuild`
+```
+xbuild
+```
 
 # Run the built executable
 
+```
 mono bin/TemplateGenerator.exe 
+```
