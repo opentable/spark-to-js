@@ -16,16 +16,16 @@ namespace TemplateGenerator
                 if (args.Length == 0)
                 {
                     Console.WriteLine("You must supply the view folder path and output path.");
-					return;
+                    return;
                 }
 
-                var settings = new SparkSettings();
+                Console.WriteLine("Converting {0} folder", args[0]);
 
+                var settings = new SparkSettings();
                 var factory = new SparkViewFactory(settings);
+                var files = Directory.GetFiles(args[0], "Shared/*.spark", SearchOption.AllDirectories);
 
                 factory.ViewFolder = new FileSystemViewFolder(args[0]);
-
-                var files = Directory.GetFiles(args[0], "Shared/*.spark", SearchOption.AllDirectories);
 
                 foreach (string file in files)
                 {
