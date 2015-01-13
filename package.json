@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Convert Spark Templates to JS",
   "scripts": {
-    "build": "xbuild"
+    "install": "xbuild"
   },
   "repository": {
     "type": "git",
