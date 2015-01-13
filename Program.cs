@@ -23,7 +23,7 @@ namespace TemplateGenerator
 
                 var settings = new SparkSettings();
                 var factory = new SparkViewFactory(settings);
-                var files = Directory.GetFiles(args[0], "Shared/*.spark", SearchOption.AllDirectories);
+                var files = Directory.GetFiles(args[0] + "/Shared/", "*.spark", SearchOption.AllDirectories);
 
                 factory.ViewFolder = new FileSystemViewFolder(args[0]);
 
