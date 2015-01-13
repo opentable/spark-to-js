@@ -1,0 +1,22 @@
+{
+  "name": "spark-to-js",
+  "version": "1.0.0",
+  "description": "Convert Spark Templates to JS",
+  "scripts": {
+    "build": "xbuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/opentable/spark-to-js.git"
+  },
+  "keywords": [
+    "Spark",
+    "JS",
+    "Mono"
+  ],
+  "author": "Matt Blair",
+  "bugs": {
+    "url": "https://github.com/opentable/spark-to-js/issues"
+  },
+  "homepage": "https://github.com/opentable/spark-to-js"
+}
