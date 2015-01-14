@@ -4,6 +4,7 @@ using System.IO;
 using Spark;
 using Spark.FileSystem;
 using Spark.Web.Mvc;
+using Spark.Web.Mvc.Descriptors;
 
 namespace TemplateGenerator
 {
@@ -19,29 +20,28 @@ namespace TemplateGenerator
                     return;
                 }
 
-                Console.WriteLine("Converting {0} folder", args[0]);
+                Console.WriteLine("Converting spark templates in {0}{2}, moving to {1}", args[0], args[1], "/Shared");
 
                 var settings = new SparkSettings();
                 var factory = new SparkViewFactory(settings);
-                var files = Directory.GetFiles(args[0] + "/Shared/", "*.spark", SearchOption.AllDirectories);
+                var files = Directory.GetFiles(args[0] + "/Shared", "*.spark", SearchOption.AllDirectories);
 
                 factory.ViewFolder = new FileSystemViewFolder(args[0]);
 
+                Console.WriteLine("Found {0} files to process", files.Length);
+
                 foreach (string file in files)
                 {
-                    string parsedFile = file.Replace(string.Format("{0}\\Shared\\", args[0]), string.Empty);
-                    parsedFile = parsedFile.Replace(".spark", string.Empty);
+                    string sparkFile = file.Replace(args[0] + "/Shared/", string.Empty);
+                    string fileName = sparkFile.Replace(".spark", string.Empty);
 
-                    var buildDescriptorParams = new BuildDescriptorParams(string.Empty, string.Empty, parsedFile,
-                                                                          string.Empty, false,
-                                                                          new Dictionary<string, object>());
-
-                    var descriptor = factory.DescriptorBuilder.BuildDescriptor(buildDescriptorParams, new List<string>());
+                    var descriptor = new SparkViewDescriptor();
+                    descriptor.Templates.Add("Shared/" + sparkFile);
                     descriptor.Language = LanguageType.Javascript;
 
                     var entry = factory.Engine.CreateEntry(descriptor);
 
-                    string filePath = string.Format("{0}.js", Path.Combine(args[1], parsedFile));
+                    string filePath = string.Format("{0}.js", Path.Combine(args[1], fileName));
 
                     if (!Directory.Exists(Path.GetDirectoryName(filePath)))
                     {
