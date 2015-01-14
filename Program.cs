@@ -20,11 +20,11 @@ namespace TemplateGenerator
                     return;
                 }
 
-                Console.WriteLine("Converting spark templates in {0}{2}, moving to {1}", args[0], args[1], "/Shared");
+                Console.WriteLine("Converting spark templates in {0}, moving to {1}", args[0], args[1]);
 
                 var settings = new SparkSettings();
                 var factory = new SparkViewFactory(settings);
-                var files = Directory.GetFiles(args[0] + "/Shared", "*.spark", SearchOption.AllDirectories);
+                var files = Directory.GetFiles(args[0], "*.spark", SearchOption.AllDirectories);
 
                 factory.ViewFolder = new FileSystemViewFolder(args[0]);
 
@@ -32,11 +32,11 @@ namespace TemplateGenerator
 
                 foreach (string file in files)
                 {
-                    string sparkFile = file.Replace(args[0] + "/Shared/", string.Empty);
+                    string sparkFile = file.Replace(args[0] + "/", string.Empty);
                     string fileName = sparkFile.Replace(".spark", string.Empty);
 
                     var descriptor = new SparkViewDescriptor();
-                    descriptor.Templates.Add("Shared/" + sparkFile);
+                    descriptor.Templates.Add(sparkFile);
                     descriptor.Language = LanguageType.Javascript;
 
                     var entry = factory.Engine.CreateEntry(descriptor);
