@@ -1,6 +1,6 @@
 {
   "name": "spark-to-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert Spark Templates to JS",
   "scripts": {
     "install": "mono Nuget.exe restore; xbuild"
