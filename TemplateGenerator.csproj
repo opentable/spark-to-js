@@ -38,10 +38,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Spark">
-      <HintPath>packages\Spark.1.7.5.1\lib\NET40\Spark.dll</HintPath>
+      <HintPath>Spark.dll</HintPath>
     </Reference>
     <Reference Include="Spark.Web.Mvc">
-      <HintPath>packages\Spark.Web.Mvc4.1.0.0.1\lib\NET4\Spark.Web.Mvc.dll</HintPath>
+      <HintPath>Spark.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

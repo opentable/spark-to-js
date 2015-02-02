@@ -22,11 +22,10 @@ namespace TemplateGenerator
 
                 Console.WriteLine("Converting spark templates in {0}, moving to {1}", args[0], args[1]);
 
-                var settings = new SparkSettings();
-                var factory = new SparkViewFactory(settings);
+                var settings = new SparkSettings().SetPageBaseType(typeof(SparkView));
+                var templates = new FileSystemViewFolder(args[0]);
+                var factory = new SparkViewFactory(settings) { ViewFolder = templates };
                 var files = Directory.GetFiles(args[0], "*.spark", SearchOption.AllDirectories);
-
-                factory.ViewFolder = new FileSystemViewFolder(args[0]);
 
                 Console.WriteLine("Found {0} files to process", files.Length);
 
@@ -36,9 +35,10 @@ namespace TemplateGenerator
                     string fileName = sparkFile.Replace(".spark", string.Empty);
 
                     var descriptor = new SparkViewDescriptor();
-                    descriptor.Templates.Add(sparkFile);
                     descriptor.Language = LanguageType.Javascript;
+                    descriptor.Templates.Add(sparkFile);
 
+                    //Maybe this has to be done in order so the other templates exist?
                     var entry = factory.Engine.CreateEntry(descriptor);
 
                     string filePath = string.Format("{0}.js", Path.Combine(args[1], fileName));
