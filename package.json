@@ -1,9 +1,9 @@
 {
   "name": "spark-to-js",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Convert Spark Templates to JS",
   "scripts": {
-    "install": "mono Nuget.exe restore; xbuild"
+    "install": "rm -rf bin; mono Nuget.exe restore; xbuild"
   },
   "repository": {
     "type": "git",
@@ -12,7 +12,8 @@
   "keywords": [
     "Spark",
     "JS",
-    "Mono"
+    "Mono",
+    "templates"
   ],
   "author": "Matt Blair",
   "bugs": {
