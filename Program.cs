@@ -53,7 +53,7 @@ namespace TemplateGenerator
             }
             catch (Exception exception)
             {
-                Console.WriteLine("Exception: "+exception.Message);
+                Console.WriteLine("Exception: " + exception.Message);
                 Console.WriteLine(exception.StackTrace);
                 throw exception;
             }
