@@ -3,7 +3,7 @@
   "version": "1.1.6",
   "description": "Convert Spark Templates to JS",
   "scripts": {
-    "install": "mono ./NuGet.exe restore; xbuild"
+    "install": "mono './NuGet.exe' 'restore'; xbuild"
   },
   "repository": {
     "type": "git",
