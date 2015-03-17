@@ -31,7 +31,7 @@ namespace TemplateGenerator
 
                 foreach (string file in files)
                 {
-                    string sparkFile = file.Replace(args[0] + System.IO.Path.PathSeparator, string.Empty);
+                    string sparkFile = file.Replace(args[0] + System.IO.Path.DirectorySeparatorChar, string.Empty);
                     string fileName = sparkFile.Replace(".spark", string.Empty);
 
                     var descriptor = new SparkViewDescriptor();

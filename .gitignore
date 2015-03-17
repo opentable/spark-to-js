@@ -2,3 +2,4 @@ bin
 obj
 packages
 TemplateGenerator.userprefs
+npm-debug.log
