@@ -3,3 +3,4 @@ obj
 packages
 TemplateGenerator.userprefs
 npm-debug.log
+node_modules
