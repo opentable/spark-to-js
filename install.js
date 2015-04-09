@@ -4,8 +4,6 @@ var process = require('child_process');
 
 var isWin = /^win/.test(os.platform());
 
-console.log(__dirname);
-
 var cb = function (error, stdout, stderr) {
   console.log(stdout);
   console.log(stderr);
@@ -15,7 +13,7 @@ var cb = function (error, stdout, stderr) {
 };
 
 if (isWin) {
-  process.exec(path.join(__dirname, 'grunt') + ' build-win', cb);
+  process.exec('grunt -b ' + __dirname + ' build-win', cb);
 } else {
-  process.exec(path.join(__dirname, 'grunt') + ' build', cb);
+  process.exec('grunt -b ' + __dirname + ' build', cb);
 }
