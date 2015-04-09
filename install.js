@@ -3,8 +3,16 @@ var process = require('child_process');
 
 var isWin = /^win/.test(os.platform());
 
+var cb = function (error, stdout, stderr) {
+  console.log(stdout);
+  console.log(stderr);
+  if (error !== null) {
+    console.log('exec error: ' + error);
+  }
+};
+
 if (isWin) {
-  process.execFileSync('grunt', ['build-win']);
+  process.exec('grunt build-win', cb);
 } else {
-  process.execFileSync('grunt', ['build']);
+  process.exec('grunt build', cb);
 }
