@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "Convert Spark Templates to JS",
   "scripts": {
-    "install": "node install.js"
+    "postinstall": "node install.js"
   },
   "repository": {
     "type": "git",
