@@ -3,6 +3,7 @@
   "version": "1.2.0",
   "description": "Convert Spark Templates to JS",
   "scripts": {
+    "preinstall": "npm install --ignore-scripts",
     "postinstall": "node install.js"
   },
   "repository": {
