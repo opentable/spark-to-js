@@ -36,7 +36,8 @@ namespace TemplateGenerator
                     string fileName = sparkFile.Replace(".spark", string.Empty);
                     string jsFilePath = string.Format("{0}.js", Path.Combine(args[1], fileName));
 
-                    if (args.Length == 2 || (File.GetLastWriteTime(jsFilePath) < File.GetLastWriteTime(sparkFile)))
+                    if (args.Length == 2 || !File.Exists(jsFilePath) || (File.GetLastWriteTime(jsFilePath) < File.GetLastWriteTime(sparkFile)))
+
                     {
                         var descriptor = new SparkViewDescriptor();
                         descriptor.Language = LanguageType.Javascript;
