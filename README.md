@@ -24,5 +24,15 @@ mono node_modules/spark-to-js/bin/TemplateGenerator.exe
 # Run the built executable on Windows
 
 ```
-node_modules/spark-to-js/bin/TemplateGenerator.exe
+node_modules/spark-to-js/bin/TemplateGenerator.exe PATH_TO_SPARK_VIEWS DESTINATION_PATH
 ```
+
+# Options
+
+Optionally, you can pass the --newer flag, and only Spark templates that have been changed since the last instance will be built.
+
+```
+TemplateGenerator.exe PATH_TO_SPARK_VIEWS DESTINATION_PATH --newer
+```
+
+
