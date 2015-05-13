@@ -13,9 +13,10 @@ var cb = function (error, stdout, stderr) {
 };
 
 var gruntfilePath = path.join(__dirname, 'Gruntfile.js');
+var gruntPath = path.join('node_modules', 'grunt-cli', 'bin', 'grunt');
 
 if (isWin) {
-  process.exec('grunt --gruntfile ' + gruntfilePath + ' build-win', cb);
+  process.exec(gruntPath + ' --gruntfile ' + gruntfilePath + ' build-win', cb);
 } else {
-  process.exec('grunt --gruntfile ' + gruntfilePath + ' build', cb);
+  process.exec(gruntPath + ' --gruntfile ' + gruntfilePath + ' build', cb);
 }
